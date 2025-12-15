@@ -1,0 +1,30 @@
+solid OBJECT
+  facet normal -1 -0 -0
+    outer loop
+      vertex 50 54.700000762939453 0
+      vertex 50 6.1999998092651367 0
+      vertex 50 6.1999998092651367 25
+    endloop
+  endfacet
+  facet normal -1 -0 -0
+    outer loop
+      vertex 50 54.700000762939453 0
+      vertex 50 6.1999998092651367 25
+      vertex 50 54.700000762939453 25
+    endloop
+  endfacet
+  facet normal -1 -0 -0
+    outer loop
+      vertex 50 6.1999998092651367 0
+      vertex 50 -54.700000762939453 0
+      vertex 50 -54.700000762939453 25
+    endloop
+  endfacet
+  facet normal -1 -0 -0
+    outer loop
+      vertex 50 6.1999998092651367 0
+      vertex 50 -54.700000762939453 25
+      vertex 50 6.1999998092651367 25
+    endloop
+  endfacet
+endsolid OBJECT

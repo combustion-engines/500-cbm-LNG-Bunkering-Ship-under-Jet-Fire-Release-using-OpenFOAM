@@ -1,0 +1,226 @@
+solid OBJECT
+  facet normal -0 -1 0
+    outer loop
+      vertex 0 54.700000762939453 25
+      vertex -24.25 54.700000762939453 25
+      vertex -24.25 54.700000762939453 12.5
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex 0 54.700000762939453 25
+      vertex 24.25 54.700000762939453 12.5
+      vertex 24.25 54.700000762939453 25
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex 0 54.700000762939453 0
+      vertex 0 54.700000762939453 25
+      vertex -24.25 54.700000762939453 12.5
+    endloop
+  endfacet
+  facet normal -0 -1 -0
+    outer loop
+      vertex 0 54.700000762939453 25
+      vertex 0 54.700000762939453 0
+      vertex 24.25 54.700000762939453 12.5
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex 0 54.700000762939453 0
+      vertex 24.25 54.700000762939453 0
+      vertex 24.25 54.700000762939453 12.5
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex -24.25 54.700000762939453 0
+      vertex 0 54.700000762939453 0
+      vertex -24.25 54.700000762939453 12.5
+    endloop
+  endfacet
+  facet normal -0 -1 -0
+    outer loop
+      vertex -24.25 54.700000762939453 12.5
+      vertex -24.25 54.700000762939453 25
+      vertex -50 54.700000762939453 25
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex -24.25 54.700000762939453 0
+      vertex -24.25 54.700000762939453 12.5
+      vertex -50 54.700000762939453 0
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -50 54.700000762939453 25
+      vertex -50 54.700000762939453 0
+      vertex -24.25 54.700000762939453 12.5
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex 24.25 54.700000762939453 12.5
+      vertex 50 54.700000762939453 25
+      vertex 24.25 54.700000762939453 25
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex 50 54.700000762939453 0
+      vertex 24.25 54.700000762939453 12.5
+      vertex 24.25 54.700000762939453 0
+    endloop
+  endfacet
+  facet normal -0 -1 0
+    outer loop
+      vertex 50 54.700000762939453 25
+      vertex 24.25 54.700000762939453 12.5
+      vertex 50 54.700000762939453 0
+    endloop
+  endfacet
+  facet normal 1 0 -0
+    outer loop
+      vertex -50 54.700000762939453 25
+      vertex -50 6.1999998092651367 25
+      vertex -50 6.1999998092651367 0
+    endloop
+  endfacet
+  facet normal 1 0 -0
+    outer loop
+      vertex -50 54.700000762939453 25
+      vertex -50 6.1999998092651367 0
+      vertex -50 54.700000762939453 0
+    endloop
+  endfacet
+  facet normal 1 0 -0
+    outer loop
+      vertex -50 6.1999998092651367 25
+      vertex -50 -54.700000762939453 25
+      vertex -50 -54.700000762939453 0
+    endloop
+  endfacet
+  facet normal 1 0 -0
+    outer loop
+      vertex -50 6.1999998092651367 25
+      vertex -50 -54.700000762939453 0
+      vertex -50 6.1999998092651367 0
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 50 -54.700000762939453 0
+      vertex 24.25 -54.700000762939453 0
+      vertex 24.25 -54.700000762939453 1.9500000476837158
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 24.25 -54.700000762939453 13.475000381469727
+      vertex 50 -54.700000762939453 0
+      vertex 24.25 -54.700000762939453 1.9500000476837158
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 50 -54.700000762939453 25
+      vertex 24.25 -54.700000762939453 13.475000381469727
+      vertex 24.25 -54.700000762939453 25
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 50 -54.700000762939453 0
+      vertex 24.25 -54.700000762939453 13.475000381469727
+      vertex 50 -54.700000762939453 25
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 0 -54.700000762939453 1.9500000476837158
+      vertex -24.25 -54.700000762939453 1.9500000476837158
+      vertex -24.25 -54.700000762939453 13.475000381469727
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 0 -54.700000762939453 1.9500000476837158
+      vertex 24.25 -54.700000762939453 13.475000381469727
+      vertex 24.25 -54.700000762939453 1.9500000476837158
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 0 -54.700000762939453 25
+      vertex 0 -54.700000762939453 1.9500000476837158
+      vertex -24.25 -54.700000762939453 13.475000381469727
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 0 -54.700000762939453 1.9500000476837158
+      vertex 0 -54.700000762939453 25
+      vertex 24.25 -54.700000762939453 13.475000381469727
+    endloop
+  endfacet
+  facet normal -0 1 -0
+    outer loop
+      vertex 0 -54.700000762939453 25
+      vertex 24.25 -54.700000762939453 25
+      vertex 24.25 -54.700000762939453 13.475000381469727
+    endloop
+  endfacet
+  facet normal -0 1 -0
+    outer loop
+      vertex -24.25 -54.700000762939453 25
+      vertex 0 -54.700000762939453 25
+      vertex -24.25 -54.700000762939453 13.475000381469727
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -24.25 -54.700000762939453 0
+      vertex -50 -54.700000762939453 0
+      vertex -24.25 -54.700000762939453 1.9500000476837158
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex -24.25 -54.700000762939453 13.475000381469727
+      vertex -24.25 -54.700000762939453 1.9500000476837158
+      vertex -50 -54.700000762939453 0
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex -24.25 -54.700000762939453 25
+      vertex -24.25 -54.700000762939453 13.475000381469727
+      vertex -50 -54.700000762939453 25
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -50 -54.700000762939453 0
+      vertex -50 -54.700000762939453 25
+      vertex -24.25 -54.700000762939453 13.475000381469727
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 50 -54.700000762939453 25
+      vertex -50 -54.700000762939453 25
+      vertex -50 54.700000762939453 25
+    endloop
+  endfacet
+  facet normal -0 0 -1
+    outer loop
+      vertex 50 -54.700000762939453 25
+      vertex -50 54.700000762939453 25
+      vertex 50 54.700000762939453 25
+    endloop
+  endfacet
+endsolid OBJECT

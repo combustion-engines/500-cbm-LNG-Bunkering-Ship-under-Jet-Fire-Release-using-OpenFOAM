@@ -1,0 +1,283 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+castellatedMesh true;
+snap            true;
+addLayers       false;
+
+
+
+geometry
+{
+
+    bunkering
+    {
+        type triSurfaceMesh;
+        file "internal.stl";
+    }
+
+    wall
+    {
+        type triSurfaceMesh;
+        file "wall.stl";
+
+    }
+
+    inlet
+    {
+        type triSurfaceMesh;
+        file "inlet.stl";
+
+    }
+
+    gas
+    {
+        type triSurfaceMesh;
+        file "gas.stl";
+
+    }
+
+    open
+    {
+        type triSurfaceMesh;
+        file "open.stl";
+
+    }
+
+
+    box
+    {
+        type box;
+        min  (-43.17 -32.2 1);
+        max  (39.32 12.05 12.07);
+    }
+
+    gass
+    {
+        type box;
+        min  (-24.25 -12.07 1.95);
+        max  (24.3 6.2 11);
+    }
+
+    gass2
+    {
+        type box;
+        min  (-0.7 -9 1.95);
+        max  (0.7 -6 4);
+    }
+};
+
+
+// Settings for the castellatedMesh generation.
+castellatedMeshControls
+{
+    maxLocalCells 100000;
+    maxGlobalCells 2000000;
+    minRefinementCells 2;
+    maxLoadUnbalance 0.10;
+    nCellsBetweenLevels 1;
+
+    resolveFeatureAngle 30;
+    planarAngle         30;
+    allowFreeStandingZoneFaces true;
+
+    features
+    (
+    );
+
+    refinementSurfaces
+    {
+        wall
+        {
+            level (0 0);
+            patchInfo
+            {
+                type        wall;
+            }
+        }
+
+
+        inlet
+        {
+            level (0 0);
+            patchInfo
+            {
+                type        patch;
+            }
+        }
+
+        open
+        {
+            level (0 0);
+            patchInfo
+            {
+                type        patch;
+            }
+        }
+
+        gas
+        {
+            level (1 1);
+            patchInfo
+            {
+                type        patch;
+            }
+        }
+
+
+    }
+
+    // Resolve sharp angles on fridges
+    resolveFeatureAngle 30;
+
+    refinementRegions
+    {
+        box
+        {
+            mode        inside;
+
+            // Disable uniform refinement
+            levels      ((0 0));
+
+
+            levelIncrement  (0 0 (1 1 1));
+        }
+
+        gass
+        {
+            mode        inside;
+
+            // Disable uniform refinement
+            levels      ((1 1));
+
+
+            levelIncrement  (1 1 (1 1 1));
+        }
+        
+        gass2
+        {
+            mode        inside;
+
+            // Disable uniform refinement
+            levels      ((1 1));
+
+
+            levelIncrement  (1 1 (1 1 1));
+        }
+
+    }
+
+
+    // Mesh selection
+    locationInMesh (-51 -56 0.6);
+
+}
+
+
+// Settings for the snapping.
+snapControls
+{
+    //- Number of patch smoothing iterations before finding correspondence
+    //  to surface
+    nSmoothPatch 1;
+
+    //- Relative distance for points to be attracted by surface feature point
+    //  or edge. True distance is this factor times local
+    //  maximum edge length.
+    tolerance 2;
+
+    //- Number of mesh displacement relaxation iterations.
+    nSolveIter 10;
+
+    //- Maximum number of snapping relaxation iterations. Should stop
+    //  before upon reaching a correct mesh.
+    nRelaxIter 5;
+
+
+    // Feature snapping
+
+        //- Number of feature edge snapping iterations.
+        //  Leave out altogether to disable.
+        nFeatureSnapIter 10;
+
+        //- Detect (geometric) features by sampling the surface (default=false)
+        implicitFeatureSnap true;
+
+        //- Use castellatedMeshControls::features (default = true)
+        explicitFeatureSnap false;
+}
+
+// Settings for the layer addition.
+addLayersControls
+{
+    relativeSizes true;
+    expansionRatio 1.0;
+    finalLayerThickness 0.5;
+    minThickness 0.05;
+    
+    layers
+    {
+    }
+
+
+    //advanced settings
+    nGrow 0;
+    featureAngle 130;
+    maxFaceThicknessRatio 0.5;
+    nSmoothSurfaceNormals 1;
+    nSmoothThickness 10;
+    minMedianAxisAngle 90;
+    maxThicknessToMedialRatio 0.3;
+    nSmoothNormals 3;
+    slipFeatureAngle 30;
+    nRelaxIter 5;
+    nBufferCellsNoExtrude 0;
+    nLayerIter 50;
+    nRelaxedIter 20;
+}
+
+
+meshQualityControls
+{
+    maxNonOrtho 75;
+    maxBoundarySkewness 40;
+    maxInternalSkewness 4;
+    maxConcave 80;
+    minVol 1.00E-13;
+    minTetQuality 1e15;
+    //minTetQuality -1e30;
+    minArea -1;
+    minTwist 0.02;
+    minDeterminant 0.001;
+    minFaceWeight 0.05;
+    minVolRatio 0.01;
+    minTriangleTwist -1;
+    minFlatness 0.5;
+    nSmoothScale 4;
+    errorReduction 0.75;
+}
+
+
+// Advanced
+
+// Merge tolerance. Is fraction of overall bounding box of initial mesh.
+// Note: the write tolerance needs to be higher than this.
+mergeTolerance 1e-6;
+
+//writeFlags (scalarLevels);
+
+
+
+// ************************************************************************* //

@@ -1,0 +1,163 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Make sure all utilities know specialised models
+libs            (atmosphericModels);
+
+application     reactingFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         15;
+
+deltaT          1e-3;
+
+writeControl    adjustableRunTime;
+
+writeInterval   1;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  10;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep    true;
+
+maxCo             0.5;
+
+functions
+{
+    ObukhovLength1
+    {
+        // Mandatory entries
+        type            ObukhovLength;
+        libs            (fieldFunctionObjects);
+
+        // Optional entries
+        U               U;
+        result1         ObukhovLength;
+        result2         Ustar;
+        rhoRef          1.0;
+        kappa           0.4;
+        beta            3e-3;
+
+        // Optional (inherited) entries
+        writeControl    writeTime;
+    }
+
+    fieldAverage1
+    {
+        type            fieldAverage;
+        libs            (fieldFunctionObjects);
+        writeControl    writeTime;
+
+        fields
+        (
+            U
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            ObukhovLength
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            Ustar
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+        );
+    }
+}
+
+wallHeatFlux1
+{
+    // Mandatory entries (unmodifiable)
+    type            wallHeatFlux;
+    libs            (fieldFunctionObjects);
+
+    // Optional entries (runtime modifiable)
+    patches       (wall); // (wall1 "(wall2|wall3)");
+    qr            qr;
+
+    // Optional (inherited) entries
+    writePrecision  3;
+    writeToFile     true;
+    useUserTime     true;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       0;
+    timeEnd         100;
+    executeControl  timeStep;
+    executeInterval 1;
+    writeControl    timeStep;
+    writeInterval   1;
+}
+
+Co1
+{
+    // Mandatory entries (unmodifiable)
+    type            CourantNo;
+    libs            (fieldFunctionObjects);
+
+    // Optional entries (runtime modifiable)
+    rho             rho;
+
+    // Optional (inherited) entries
+    field           <phi>;
+    result          <fieldResult>;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       0;
+    timeEnd         50;
+    executeControl  timeStep;
+    executeInterval 1;
+    writeControl    timeStep;
+    writeInterval   1;
+}
+
+writeObjects1
+{
+    type        writeObjects;
+    libs        (utilityFunctionObjects);
+
+    objects     (h, rho);
+
+}
+
+// ************************************************************************* //

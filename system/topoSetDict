@@ -1,0 +1,58 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+
+  {
+      // Mandatory (inherited) entries
+      name        gaspoint;
+      type        pointSet;
+      action      new;
+
+      // Mandatory entries
+      source      nearestToPoint;
+      points
+      (
+      
+		(10.076 -0.45 9.9276)
+		(10.076 -0.45 10.122)
+		(9.888 -0.45 10.122)
+		(9.888 -0.45 9.9276)
+		(10.076 -0.45 10.316)
+		(9.888 -0.45 10.316)
+  
+      );
+  }
+  
+  {
+      // Mandatory (inherited) entries
+      name        gasset;
+      type        faceSet;
+      action      new;
+
+      // Mandatory entries
+      source      pointToFace;
+      option      all;
+
+      // Option-2
+      set   gaspoint;
+  }
+  
+);
+
+
+// ************************************************************************* //
